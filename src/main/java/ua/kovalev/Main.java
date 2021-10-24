@@ -5,7 +5,7 @@ import java.io.*;
 public class Main {
     public static void main(String[] args) {
         String text = null;
-        try (FileInputStream fio = new FileInputStream("test.txt")){
+        try (FileInputStream fio = new FileInputStream("pom.xml")){
             byte[] bytes = new byte[fio.available()];
             fio.read(bytes);
             text = new String(bytes);

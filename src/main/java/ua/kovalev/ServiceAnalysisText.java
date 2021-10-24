@@ -2,6 +2,7 @@ package ua.kovalev;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ServiceAnalysisText {
@@ -46,7 +47,9 @@ public class ServiceAnalysisText {
             }
         }
 
-        Collections.sort(listRunnables, ((o1, o2) -> o1.getCharacter()-o2.getCharacter()));
+        Comparator<AnalysisRunnable> comparator = ((o1, o2) -> o1.getResult()-o2.getResult());
+
+        Collections.sort(listRunnables, comparator.reversed());
 
         for (AnalysisRunnable runnable : listRunnables) {
             System.out.println(String.format("%s : %d", runnable.getCharacter(), runnable.getResult()));
